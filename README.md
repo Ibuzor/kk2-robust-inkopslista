@@ -6,8 +6,7 @@ This is a debugging activity to understand code and logic flow. I will be loggin
 Locus:line 90
 Resolved by:  
 1. Removed an empty line in items.txt
-2. 
 
 ## 2. String args in Program.cs
 Locus: line 2
-Resolved by: 
+Resolved by: Removed an empty line in items.txt
