@@ -13,20 +13,20 @@ while (true)
     Console.WriteLine("5. Avsluta");
     Console.Write("Välj: ");
 
-    int choice = int.Parse(Console.ReadLine());
+    int choice = int.TryParse(Console.ReadLine(), out int parsedChoice) ? parsedChoice : 0;
 
     if (choice == 1)
     {
         Console.Write("Namn: ");
         string name = Console.ReadLine();
         Console.Write("Pris: ");
-        int price = int.Parse(Console.ReadLine());
+        int price = int.TryParse(Console.ReadLine(), out int parsedPrice) ? parsedPrice : 0;
         list.Add(new Item(name, price));
     }
     else if (choice == 2)
     {
         Console.Write("Nummer: ");
-        int number = int.Parse(Console.ReadLine());
+        int number = int.TryParse(Console.ReadLine(), out int parsedNumber) ? parsedNumber : 0;
         list.RemoveAt(number);
     }
     else if (choice == 3)
