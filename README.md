@@ -18,4 +18,6 @@ Löst av: Skrev om Load() att fixa saknade-fil krash
 Locus: ShoppingList.cs rad 24-34
 Löst med att: Byt metod från en "int" till "long"
 
-## 5. 
+## 5. Att Spara döljer misslyckor pga empty catch { }
+Locus: rad 61-87
+Löst av: Skrev om Save() att fånga och rapportera misslyckor med try att spara listan och catch error meddelande

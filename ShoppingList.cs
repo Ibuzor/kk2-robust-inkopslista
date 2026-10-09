@@ -80,10 +80,6 @@ class ShoppingList
         {
             Console.WriteLine($"Åtkomst nekad vid sparande av fil: {error.Message}");
         }
-        catch (Exception error)
-        {
-            Console.WriteLine($"Ett oväntat fel uppstod: {error.Message}");
-        }
     }
 
     // Reads the file back into the list.
@@ -113,9 +109,9 @@ class ShoppingList
             }
         }
         }
-        catch (IOException ex)
+        catch (IOException error)
         {
-            Console.WriteLine($"Fel vid läsning av fil: {ex.Message}");
+            Console.WriteLine($"Fel vid läsning av fil: {error.Message}");
         }
     }
 }
