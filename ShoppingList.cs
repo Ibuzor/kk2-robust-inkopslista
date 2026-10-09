@@ -106,7 +106,7 @@ class ShoppingList
         {
             if (string.IsNullOrWhiteSpace(line)) continue;
 
-             string[] parts = line.Split(';');
+             string[] parts = line.Split(';', 2);
             if (parts.Length == 2 && int.TryParse(parts[0], out int price))
             {
                 try { items.Add(new Item(parts[1], price)); }
