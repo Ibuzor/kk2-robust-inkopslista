@@ -27,7 +27,10 @@ while (true)
     {
         Console.Write("Nummer: ");
         int number = int.TryParse(Console.ReadLine(), out int parsedNumber) ? parsedNumber : 0;
-        list.RemoveAt(number);
+        if (!list.RemoveAt(number))
+        {
+            Console.WriteLine("Ogiltigt nummer.");
+        }
     }
     else if (choice == 3)
     {
