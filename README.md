@@ -22,8 +22,9 @@ Löst med att: Byt metod i Total() funktion från en "int" till "long"
 Fel Locus: ShoppingList.cs, Save() funktion, rad 74-76
 Löst av: Skrev om Save() att fånga och rapportera misslyckor med try att spara listan och catch error meddelande
 
-## 6. Ogiltigt nummer orsaker krasch pga RemoveAt
+## 6. Ogiltigt nummer kan orsaker krasch pga RemoveAt
 Fel Locus: ShoppingList.cs, RemoveAt() funktion
 Löst med att lägga till i: 
 1. Shopping List.cs en bool metod, rad 18-22
 2. Program.cs en if funktion att skriva ogiltigt nummer, rad 30-33
+3. Gjorde om rad 22-50 i Program.cs att Hantera ogiltig inmatning i meny, pris och nummer

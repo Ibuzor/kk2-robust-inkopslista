@@ -9,9 +9,10 @@ class ShoppingList
         this.path = path;
     }
 
-    public void Add(Item item)
+    public bool Add(Item item)
     {
         items.Add(item);
+        return true;
     }
 
     // Removes the item the user sees as number 1, 2, 3 ...
@@ -21,6 +22,7 @@ class ShoppingList
         items.RemoveAt(number - 1);
         return true;
     }
+    
 
     // Adds up the price of every item on the list.
     public long Total()

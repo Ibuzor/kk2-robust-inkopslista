@@ -20,8 +20,34 @@ while (true)
         Console.Write("Namn: ");
         string name = Console.ReadLine();
         Console.Write("Pris: ");
-        int price = int.TryParse(Console.ReadLine(), out int parsedPrice) ? parsedPrice : 0;
-        list.Add(new Item(name, price));
+        if (!int.TryParse(Console.ReadLine(), out int price))
+        {
+            Console.WriteLine("Ogiltigt pris. Ange ett heltal.");
+        }
+        else
+        {
+            try
+            {
+                Item item = new Item(name, price);
+
+                if (list.Add(item))
+                {
+                    Console.WriteLine("Varan lades till.");
+                }
+                else
+                {
+                    Console.WriteLine("Varan kunde inte läggas till.");
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("Priset får inte vara negativt.");
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("Namnet får inte vara tomt.");
+            }
+        }
     }
     else if (choice == 2)
     {
@@ -54,5 +80,9 @@ while (true)
     else if (choice == 5)
     {
         break;
+    }
+    else
+    {
+        Console.WriteLine("Ogiltigt val. Välj 1-5.");
     }
 }
