@@ -81,13 +81,35 @@ class ShoppingList
     // Reads the file back into the list.
     public void Load()
     {
-        string text = File.ReadAllText(path);
-        string[] lines = text.Split('\n');
-
-        foreach (string line in lines)
+        if (!File.Exists(path)) return;
+        
+        try
         {
-            string[] parts = line.Split(';');
-            items.Add(new Item(parts[1], int.TryParse(parts[0], out int parsedPrice) ? parsedPrice : 0));
+        foreach (string line in File.ReadAllLines(path))
+        {
+            if (string.IsNullOrWhiteSpace(line)) continue;
+
+             string[] parts = line.Split(';');
+            if (parts.Length == 2 && int.TryParse(parts[0], out int price))
+            {
+                try { items.Add(new Item(parts[1], price)); }
+                catch (ArgumentException)
+                {
+                    Console.WriteLine($"Fel vid läsning av rad: {line}");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Hoppade över ogiltig rad: {line}");
+                continue;
+            }
+        }
+        }
+        catch (IOException ex)
+        {
+            Console.WriteLine($"Fel vid läsning av fil: {ex.Message}");
         }
     }
 }
+
+
