@@ -6,7 +6,6 @@ while (true)
     Console.WriteLine();
     list.Print();
     Console.WriteLine();
-    Console.WriteLine($"Totalt: {list.Total()} / {list.Budget} kr");
     Console.WriteLine("1. Lägg till vara");
     Console.WriteLine("2. Ta bort vara");
     Console.WriteLine("3. Spara");
@@ -34,6 +33,7 @@ while (true)
                 if (list.Add(item))
                 {
                     Console.WriteLine("Varan lades till.");
+                    
                 }
                 else
                 {

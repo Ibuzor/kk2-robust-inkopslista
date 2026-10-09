@@ -67,7 +67,7 @@ class ShoppingList
             Console.WriteLine($"{i + 1}. {items[i]}");
         }
 
-        Console.WriteLine($"Totalt: {Total()} kr");
+        Console.WriteLine($"Totalt: {Total()} / {budget} kr");
     }
 
     // Writes one item per line, as "price;name".
@@ -125,6 +125,10 @@ class ShoppingList
         catch (IOException error)
         {
             Console.WriteLine($"Fel vid läsning av fil: {error.Message}");
+        }
+        catch (UnauthorizedAccessException error)
+        {
+            Console.WriteLine($"Åtkomst nekad vid läsning av fil: {error.Message}");
         }
     }
 }
