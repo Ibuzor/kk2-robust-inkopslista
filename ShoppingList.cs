@@ -3,14 +3,23 @@ class ShoppingList
 {
     private List<Item> items = new List<Item>();
     private string path;
+    private int budget;
 
-    public ShoppingList(string path)
+    public ShoppingList(string path, int budget)
     {
         this.path = path;
+        this.budget = budget;
     }
+
+    public int Budget => budget;
 
     public bool Add(Item item)
     {
+        if (Total() + item.Price > budget)
+        {
+            Console.WriteLine($"Kan inte lägga till {item.Name}. Budgeten på {budget} kr överskrids.");
+            return false;
+        }
         items.Add(item);
         return true;
     }

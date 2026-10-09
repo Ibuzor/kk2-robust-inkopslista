@@ -1,4 +1,4 @@
-ShoppingList list = new ShoppingList("items.txt");
+ShoppingList list = new ShoppingList("items.txt", 4200);
 list.Load();
 
 while (true)
@@ -6,6 +6,7 @@ while (true)
     Console.WriteLine();
     list.Print();
     Console.WriteLine();
+    Console.WriteLine($"Totalt: {list.Total()} / {list.Budget} kr");
     Console.WriteLine("1. Lägg till vara");
     Console.WriteLine("2. Ta bort vara");
     Console.WriteLine("3. Spara");
